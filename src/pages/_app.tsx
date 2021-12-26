@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from 'server/client';
 import AdminLayout from 'layouts/Admin';
+import MainLayout from 'layouts';
 import { useRouter } from 'next/router';
 
 import '@paljs/admin/style.css';
@@ -17,7 +18,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>Great PalJs App</title>
+        <title>Saamb Food & Drinks</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
@@ -27,7 +28,9 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
             <Component {...pageProps} />
           </AdminLayout>
         ) : (
-          <Component {...pageProps} />
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
         )}
       </ApolloProvider>
     </>
